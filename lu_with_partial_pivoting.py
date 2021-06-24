@@ -21,16 +21,15 @@
 #              L and U stacked on top of the other in array A
 #        perm: ( ouptut ) permutation vector representating the row permutations
 #
+def lu_with_partial_pivoting( A_, inplace = False ):
 #
-def lu_with_partial_pivoting( A, inplace = False ):
-#
+  import nump as np
   import copy
-  print("hello")
 #    
-#  if ( inplace ):
-#    A = A_
-#  else: 
-#    A = copy.deepcopy(A_)
+  if ( inplace ):
+    A = A_
+  else: 
+    A = copy.deepcopy(A_)
 #
 # begin main code
 #  
@@ -50,5 +49,13 @@ def lu_with_partial_pivoting( A, inplace = False ):
       A[i,k] = A[i,k] / A[k,k]
       for j in range(k+1,n):
         A[i,j] = A[i,j] - A[k,j] * A[i,k]
-
-  return A[0,2]
+#        
+# end main code   
+#
+  if inplace:
+    return perm
+  else:
+    L = np.tril(A,-1)+np.eye(n)
+    U = np.triu(A)
+    P = np.eye(n)[perm,:]
+    return P, L, U
