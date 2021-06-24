@@ -50,3 +50,5 @@ def lu_with_partial_pivoting( A_, inplace = False ):
       A[i,k] = A[i,k] / A[k,k]
       for j in range(k+1,n):
         A[i,j] = A[i,j] - A[k,j] * A[i,k]
+
+  return A[0,2]
