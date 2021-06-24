@@ -27,10 +27,10 @@ def lu_with_partial_pivoting( A_, inplace = False ):
   import copy
   print("hello")
 #    
-  if ( inplace ):
-    A = A_
-  else: 
-    A = copy.deepcopy(A_)
+#  if ( inplace ):
+#    A = A_
+#  else: 
+#    A = copy.deepcopy(A_)
 #
 # begin main code
 #  
