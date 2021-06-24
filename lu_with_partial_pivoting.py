@@ -53,7 +53,7 @@ def lu_with_partial_pivoting( A_, inplace = False ):
 # end main code   
 #
   if inplace:
-    return perm
+    return perm, 0, 0
   else:
     L = np.tril(A,-1)+np.eye(n)
     U = np.triu(A)
