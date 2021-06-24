@@ -49,13 +49,3 @@ def lu_with_partial_pivoting( A_, inplace = False ):
       A[i,k] = A[i,k] / A[k,k]
       for j in range(k+1,n):
         A[i,j] = A[i,j] - A[k,j] * A[i,k]
-#        
-# end main code   
-#
-  if inplace:
-    return perm, 0, 0
-  else:
-    L = np.tril(A,-1)+np.eye(n)
-    U = np.triu(A)
-    P = np.eye(n)[perm,:]
-    return P, L, U
