@@ -21,7 +21,41 @@
 #              L and U stacked on top of the other in array A
 #        perm: ( ouptut ) permutation vector representating the row permutations
 #
-#import copy
 #
 def lu_with_partial_pivoting( A_, inplace = False ):
-  return 1
+#
+  import copy
+#    
+  if ( inplace ):
+    A = A_
+  else: 
+    A = copy.deepcopy(A_)
+#
+# begin main code
+#  
+  n = A.shape[0]
+  
+  perm = np.arange(n)
+
+  for k in range(0,n-1):
+
+    i = k + np.argmax( abs( A[k:n,k] ) )
+    A[[k,i],:] = A[[i,k],:]
+    perm[[k,i]] = perm[[i,k]]
+
+    if ( A[k,k] == 0. ): print("oops, matrix is singular\n"); break
+
+    for i in range(k+1,n):
+      A[i,k] = A[i,k] / A[k,k]
+      for j in range(k+1,n):
+        A[i,j] = A[i,j] - A[k,j] * A[i,k]
+#        
+# end main code   
+#
+  if inplace:
+    return perm
+  else:
+    L = np.tril(A,-1)+np.eye(n)
+    U = np.triu(A)
+    P = np.eye(n)[perm,:]
+    return P, L, U
