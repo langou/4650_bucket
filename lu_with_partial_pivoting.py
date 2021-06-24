@@ -21,6 +21,8 @@
 #              L and U stacked on top of the other in array A
 #        perm: ( ouptut ) permutation vector representating the row permutations
 #
+import copy
+#
 def lu_with_partial_pivoting( A_, inplace = False ):
 #    
   if ( inplace ):
