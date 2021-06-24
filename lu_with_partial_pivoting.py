@@ -25,10 +25,6 @@ import copy
 #
 def lu_with_partial_pivoting( A_, inplace = False ):
 #    
-  if ( inplace ):
-    A = A_
-  else: 
-    A = copy.deepcopy(A_)
 #
 # begin main code
 #  
