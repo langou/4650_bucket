@@ -22,7 +22,7 @@
 #        perm: ( ouptut ) permutation vector representating the row permutations
 #
 #
-def lu_with_partial_pivoting( A_, inplace = False ):
+def lu_with_partial_pivoting( A, inplace = False ):
 #
   import copy
   print("hello")
