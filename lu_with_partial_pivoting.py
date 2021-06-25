@@ -23,7 +23,7 @@
 #
 def lu_with_partial_pivoting( A_, inplace = False ):
 #
-  import nump as np
+  import numpy as np
   import copy
 #    
   if ( inplace ):
