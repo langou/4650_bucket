@@ -90,6 +90,9 @@ def lu_with_partial_pivoting( A_, inplace = False ):
 # output:          solution of x of Ax=b, 
 #    
 def backward_substitution( A, b_, inplace = False ):
+#
+  import numpy as np
+  import copy
 #    
   if ( inplace ):
     b = b_
@@ -129,6 +132,10 @@ def backward_substitution( A, b_, inplace = False ):
 # You can store whatever you want in the upper part of A.
 #
 def forward__substitution( A, b_, inplace = False, unit = False ):
+#
+  import numpy as np
+  import copy
+#
   if ( inplace ):
     b = b_
   else: 
